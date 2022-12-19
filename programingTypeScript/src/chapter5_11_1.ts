@@ -6,19 +6,27 @@ type Shoe = {
 }
 
 class BalletFlat implements Shoe {
-    purpose =  'dancing'
+    purpose = 'dancing'
 }
 
 class Boot implements Shoe {
-    purpose =  'woodcutting'
+    purpose = 'woodcutting'
 }
 
 class Sneaker implements Shoe {
-    purpose =  'walking'
+    purpose = 'walking'
 }
 
-// let Shoe = {
-//     create(type: ) [
+// 靴ファクトリー
+let Shoe = {
+    create(type: 'balletFlat' | 'boot' | 'sneaker'): Shoe {
+        switch (type) {
+            case 'balletFlat': return new BalletFlat
+            case 'boot': return new Boot
+            case 'sneaker': return new Sneaker
+        }
+    }
+}
 
-//     ]
-// }
+Shoe.create('boot')
+
